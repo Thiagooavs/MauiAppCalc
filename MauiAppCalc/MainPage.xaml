@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiAppCalc.MainPage">
+             x:Class="MauiAppCalc.MainPage"
+             BackgroundColor="Black">
 
     <ContentPage.Resources>
         <ResourceDictionary>
+           
             <Style x:Key="EstiloComum" TargetType="Button">
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
                 <Setter Property="VerticalOptions" Value="Center"/>
@@ -25,8 +27,9 @@
 
     </ContentPage.Resources>
 
-    <ContentPage.Content>
+    <ContentPage.Content Style="{StaticResource Back}">
         <Grid RowDefinitions="150,*,*,*,*,*,*"
+              RowSpacing="10" ColumnSpacing="10" Margin="10"
               ColumnDefinitions="*,*,*,*">
 
             <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" x:Name="Visor" Text="0" HorizontalTextAlignment="End" VerticalTextAlignment="End" TextColor="White" FontSize="60"/>
@@ -51,7 +54,7 @@
             <Button Grid.Row="4" Grid.Column="2" Style="{StaticResource  BotaoClaro}" x:Name="num3" Text="3" Clicked="num3_Cliked"/>
             <Button Grid.Row="4" Grid.Column="3" Style="{StaticResource  BotaoLaranja}" x:Name="somar" Text="+" Clicked="somar_Cliked"/>
 
-            <Button Grid.Row="5" Grid.Column="0" Style="{StaticResource  BotaoClaro}" x:Name="num0" Text="0" Clicked="num0_Cliked"/>
+            <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource  BotaoClaro}" x:Name="num0" Text="0" Clicked="num0_Cliked"/>
             <Button Grid.Row="5" Grid.Column="2" Style="{StaticResource  BotaoClaro}" x:Name="ponto" Text="." Clicked="ponto_Cliked"/>
             <Button Grid.Row="5" Grid.Column="3" Style="{StaticResource  BotaoLaranja}" x:Name="igual" Text="=" Clicked="igual_Cliked"/>
         </Grid>
