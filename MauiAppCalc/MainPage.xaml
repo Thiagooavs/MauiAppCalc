@@ -46,7 +46,7 @@
 
             <Button Grid.Row="3" Grid.Column="0" Style="{StaticResource  BotaoClaro}" x:Name="num4" Text="4" Clicked="num4_Cliked"/>
             <Button Grid.Row="3" Grid.Column="1" Style="{StaticResource  BotaoClaro}" x:Name="num5" Text="5" Clicked="num5_Cliked"/>
-            <Button Grid.Row="3" Grid.Column="2" Style="{StaticResource  BotaoClaro}" x:Name="num6" Text="6" Clicked="num9_Cliked"/>
+            <Button Grid.Row="3" Grid.Column="2" Style="{StaticResource  BotaoClaro}" x:Name="num6" Text="6" Clicked="num6_Cliked"/>
             <Button Grid.Row="3" Grid.Column="3" Style="{StaticResource  BotaoLaranja}" x:Name="subtrair" Text="-" Clicked="subtrair_Cliked"/>
 
             <Button Grid.Row="4" Grid.Column="0" Style="{StaticResource  BotaoClaro}" x:Name="num1" Text="1" Clicked="num1_Cliked"/>

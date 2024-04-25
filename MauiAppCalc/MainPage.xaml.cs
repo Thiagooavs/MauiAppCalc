@@ -1,4 +1,6 @@
-﻿namespace MauiAppCalc
+﻿using Microsoft.Extensions.Options;
+
+namespace MauiAppCalc
 {
 
     public partial class MainPage : ContentPage
@@ -7,6 +9,7 @@
 
         double memoria_calc_pre_operacao = 0;
         double memoria_calc_pos_operacao = 0;
+       
 
         string para_apárecer_no_visor = "";
 
@@ -20,7 +23,8 @@
             if(para_apárecer_no_visor == "+" ||
                para_apárecer_no_visor == "-" ||
                para_apárecer_no_visor == "*" ||
-               para_apárecer_no_visor == "/")
+               para_apárecer_no_visor == "/" ||
+               para_apárecer_no_visor == "%" )
             {
                 para_apárecer_no_visor = "";
             }
@@ -43,9 +47,14 @@
         }
         private void porcento_Cliked(object sender, EventArgs e)
         {
-            double valor = Convert.ToDouble(Visor.Text);
+            double valor = Convert.ToDouble(para_apárecer_no_visor);
+            double lindo = valor;
             valor = valor / 100;
-            Visor.Text = valor.ToString();
+            memoria_calc_pre_operacao += valor;
+            para_apárecer_no_visor = "%";
+            Visor.Text = para_apárecer_no_visor;
+            operacao ="%";
+            
         }
         private void dividir_Cliked(object sender, EventArgs e)
         {
@@ -144,12 +153,40 @@
         {
             try
             {
+                memoria_calc_pos_operacao = Convert.ToDouble(Visor.Text);
+                double resultado = 0;
 
+                switch (operacao)
+                {
+                    case "/":
+                        resultado = memoria_calc_pre_operacao / memoria_calc_pos_operacao;
+                        break;
+
+                    case "+":
+                        resultado = memoria_calc_pre_operacao + memoria_calc_pos_operacao;
+                        break;
+
+                    case "-":
+                        resultado = memoria_calc_pre_operacao - memoria_calc_pos_operacao;
+                        break;
+
+                    case "*":
+                        resultado = memoria_calc_pre_operacao * memoria_calc_pos_operacao;
+                        break;
+
+                    case "%":
+                        resultado = memoria_calc_pre_operacao * memoria_calc_pos_operacao;
+                        break;
+
+                }
+                Visor.Text = resultado.ToString();
+                operacao = "";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                Visor.Text = ex.Message;    
+                Visor.Text = ex.Message;
             }
+
         }
     }
 
